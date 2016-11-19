@@ -1,0 +1,15 @@
+This package contains 3 main projecs: 
+	1.BaseStation: the tinyos program for the BaseStation node
+	2.MoteView: the tinyos program for the Sender node
+	3.SensorMonitor: the java program runs on PC to show the sensor data.
+
+This package also contains a "share" folder which contains files shared by "BaseStation" and "MoteView" project.
+
+To install&run:
+	1.BaseStation & MoteView: Connect sensor node to usb port, then run the "compile" script in this two folders with the sensor ID as command line parameter. BaseStation's sensor id is 7 and the other nodes id are 1-5. So, for example, when installing BaseStation, should type: ./compile 7
+	2.SensorMonitor:
+		Require Java 1.6+
+		Run the "make" script in project folder
+		Connect BaseStation node to PC 
+		Run the "run" script in project folder
+	3.MoteView nodes uses the Leds to indicate the next node number it is sending to. Since the MoteView nodes id ranges from 1-5 and BaseStation id is 7, I use code 6(blue&green) to indicate the next node is not valid so it won't send sensor data unitl receiving a PATHCALC packet.
